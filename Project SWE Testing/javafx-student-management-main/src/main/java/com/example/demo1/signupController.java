@@ -7,26 +7,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class signupController implements Initializable {
     private static final String passSalt = "9aR#5@jE!bFz^0p*2LcW8";
     public static String name;
     public static String entranceDate;
-    
+    public Button btn_signup;
+    public Hyperlink link_login;
+
     @FXML private Label error;
     @FXML private TextField usernameField, IDNum ;
     @FXML private PasswordField password, passwordConfirm;
     @FXML private ChoiceBox<String> choiceBox;
-    private String[] capacity= {"STUDENT","TEACHER"};
+    private final String[] capacity= {"STUDENT","TEACHER"};
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,12 +35,12 @@ public class signupController implements Initializable {
         entranceDate = function.getTerm();
         
     }
-//    public void choiceBox(ActionEvent event) {
-//        String capacity = choiceBox.getValue();
-//    }
+  public void choiceBox(ActionEvent event) {
+       String capacity = choiceBox.getValue();
+   }
     @FXML
     public void goLogin(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -64,7 +64,7 @@ public class signupController implements Initializable {
                             signUp(name, IdNumber, pass, rol);
                             function.AddLog(name, "success signup");
                             
-                            Parent loader = FXMLLoader.load(getClass().getResource(rol.toLowerCase() + ".fxml"));
+                            Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(rol.toLowerCase() + ".fxml")));
                             Scene scene = new Scene(loader);
                             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             app_stage.setScene(scene);

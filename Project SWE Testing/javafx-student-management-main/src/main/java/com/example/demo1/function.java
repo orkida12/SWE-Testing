@@ -89,28 +89,54 @@ public class function {
         }
         return out;
     }
-    
-    public static boolean isCorrectTime(String entrance){
-        boolean flag = true;
-        
-        String correctDate = switch (entrance.split("-")[0]) {
-            case "1402" -> "1402-11-30";
-            case "1401" -> "1402-11-29";
-            case "1400" -> "1402-11-19";
-            default -> "1402-11-27";
-        };
-        
-        //calculating current date
+
+    public static boolean isCorrectTime(String entrance) {
+        // Parse entrance year and term
+        String[] entranceParts = entrance.split("-");
+        int entranceYear = Integer.parseInt(entranceParts[0]);
+        int entranceTerm = Integer.parseInt(entranceParts[1]); // 1 = Spring, 2 = Fall
+
+        // Define the "correct date" dynamically based on the entrance year and term
+        String correctDate;
+        if (entranceTerm == 1) {
+            correctDate = entranceYear + "-12-01"; // Spring term ends around early December
+        } else {
+            correctDate = (entranceYear + 1) + "-05-01"; // Fall term ends around early May
+        }
+
+        // Get the current date in Jalali format
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
         String[] miladiDate = dtf.format(now).split("-");
-        int[] nowArr = gregorian_to_jalali(Integer.parseInt(miladiDate[0]), Integer.parseInt(miladiDate[1]), Integer.parseInt(miladiDate[2]));
-        String nowDate = nowArr[0]+"-"+nowArr[1]+"-"+nowArr[2];
-        
-        if(!correctDate.equals(nowDate))
-            flag=false;
-        
-        
-        return flag;
+        int[] nowArr = gregorian_to_jalali(
+                Integer.parseInt(miladiDate[0]),
+                Integer.parseInt(miladiDate[1]),
+                Integer.parseInt(miladiDate[2])
+        );
+
+        // Format current Jalali date
+        String nowDate = String.format("%04d-%02d-%02d", nowArr[0], nowArr[1], nowArr[2]);
+
+        // Allow a range of valid dates if needed
+        // Example: Allow access for 7 days before and after the correct date
+        int validRangeDays = 7;
+        boolean isWithinRange = isDateWithinRange(nowDate, correctDate, validRangeDays);
+
+        return isWithinRange;
     }
+
+    // Helper method to check if a date is within a valid range
+    private static boolean isDateWithinRange(String currentDate, String targetDate, int rangeDays) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        try {
+            LocalDateTime current = LocalDateTime.parse(currentDate, dtf);
+            LocalDateTime target = LocalDateTime.parse(targetDate, dtf);
+
+            return !current.isBefore(target.minusDays(rangeDays)) && !current.isAfter(target.plusDays(rangeDays));
+        } catch (Exception e) {
+            return false; // Return false in case of parsing errors
+        }
+    }
+
 }

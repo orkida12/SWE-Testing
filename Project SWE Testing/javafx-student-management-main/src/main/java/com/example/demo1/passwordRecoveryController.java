@@ -62,40 +62,52 @@ public class passwordRecoveryController implements Initializable {
         }else
             error.setText("Fill the form");
     }
-    
-    public boolean ChangePass(String username, String IdNum, String newPass, String rol){
-        String hashedNewPass = function.hashString(newPass+LoginController.passSalt);
+
+    public boolean ChangePass(String username, String IdNum, String newPass, String rol) {
+        String hashedNewPass = function.hashString(newPass + LoginController.passSalt);
         boolean flag = true;
-        
-        try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt")); BufferedWriter writer = new BufferedWriter(new FileWriter("Users_temp.txt"))) {
-            String lineToEdit = username + ", " + IdNum + ", ";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt"));
+             BufferedWriter writer = new BufferedWriter(new FileWriter("Users_temp.txt"))) {
+
             String currentLine, newLine;
-            
+
+            // Iterate through each line in Users.txt
             while ((currentLine = reader.readLine()) != null) {
-                if (!currentLine.contains(lineToEdit)) {
-                    writer.write(currentLine);
-                    writer.newLine();
-                }else{
-                    newLine = username+", "+IdNum+", "+hashedNewPass+", "+rol;
+                // Split the line into parts (username, ID, password, role, entranceDate)
+                String[] parts = currentLine.split(", ");
+                if (parts.length == 5 && parts[0].equals(username) && parts[1].equals(IdNum)) {
+                    // Extract entranceDate from the original line
+                    String entranceDate = parts[4];
+
+                    // Create the updated line with the new password
+                    newLine = username + ", " + IdNum + ", " + hashedNewPass + ", " + rol + ", " + entranceDate;
                     writer.write(newLine);
+                    writer.newLine();
+                } else {
+                    // Write unchanged lines to the temporary file
+                    writer.write(currentLine);
                     writer.newLine();
                 }
             }
         } catch (IOException e) {
-            function.AddLog(username, "Error manipulating the 'Users.txt' while password recovery  "+e.getMessage());
+            function.AddLog(username, "Error manipulating the 'Users.txt' while password recovery: " + e.getMessage());
+            flag = false;
         }
-        
-        //edit file
+
+        // Replace the original file with the updated file
         try {
             Files.move(Paths.get("Users_temp.txt"), Paths.get("Users.txt"), StandardCopyOption.REPLACE_EXISTING);
-            function.AddLog(username,"'Users.txt' Updated - PassRecovery");
+            function.AddLog(username, "'Users.txt' Updated - PassRecovery");
         } catch (IOException e) {
             e.printStackTrace();
-            flag=false;
+            flag = false;
         }
+
         return flag;
     }
-    
+
+
     @FXML private void goLogin(ActionEvent event) throws IOException {
         Parent loader = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(loader);

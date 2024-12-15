@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -32,7 +33,7 @@ public class LoginController implements Initializable {
     @FXML private ChoiceBox<String> choiceBox;
     @FXML private Label error;
     
-    private String[] capacity = {"STUDENT","TEACHER","ADMIN"};
+    private final String[] capacity = {"STUDENT","TEACHER","ADMIN"};
     
     @Override public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceBox.getItems().addAll(capacity);
@@ -40,7 +41,7 @@ public class LoginController implements Initializable {
         LoginTime();
     }
     public void choiceBox(ActionEvent event) {
-        String capacity =(String) choiceBox.getValue();
+        String capacity = choiceBox.getValue();
     }
     
     public void button(ActionEvent event) throws IOException {
@@ -56,13 +57,14 @@ public class LoginController implements Initializable {
                 
                 //switch to panel  //TODO
                 if(rol.equals("STUDENT") && !function.isCorrectTime(entrance)){
-                    Parent loader = FXMLLoader.load(getClass().getResource("wrongtimeStudent.fxml"));
+
+                    Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(rol.toLowerCase() + ".fxml")));
                     Scene scene = new Scene(loader);
                     Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     app_stage.setScene(scene);
                     app_stage.show();
                 }else {
-                    Parent loader = FXMLLoader.load(getClass().getResource(rol.toLowerCase() + ".fxml"));
+                    Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("wrongtimeStudent.fxml")));
                     Scene scene = new Scene(loader);
                     Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     app_stage.setScene(scene);
@@ -80,14 +82,14 @@ public class LoginController implements Initializable {
     }
     
     public void goSignUp(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("signup.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("signup.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
     }
     public void goPassRecovery(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource( "passwordRecovery.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("passwordRecovery.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);

@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class wrongTimeStudentController implements Initializable {
@@ -19,7 +20,7 @@ public class wrongTimeStudentController implements Initializable {
     @FXML private TextField nameField;
     
     public void exit(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource( "login.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
