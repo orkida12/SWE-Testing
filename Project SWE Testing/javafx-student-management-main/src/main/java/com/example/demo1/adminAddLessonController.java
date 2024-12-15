@@ -68,7 +68,8 @@ public class adminAddLessonController implements Initializable {
     public static int getLessonId(){
         // Auto increment
         int lastId=0;
-        try (BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles/"+function.getTerm()+"LessonsFiles"+function.getTerm()+"Lessons.txt"))) {
+        //"LessonsFiles/"+function.getTerm()+
+        try (BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles"+function.getTerm()+"Lessons.txt"))) {
             String line;
             while ((line=reader.readLine())!=null){
                 if(Integer.parseInt(line.split(", ")[6])>lastId)
@@ -103,34 +104,50 @@ public class adminAddLessonController implements Initializable {
             function.AddLog(adminController.username, "Error writing to the file for new Lesson: " + error.getMessage());
             flag=false;
         }
-        
         //Edit 'Teachers.txt'
-        try (BufferedReader reader = new BufferedReader(new FileReader("Teachers.txt")); BufferedWriter writer = new BufferedWriter(new FileWriter("TempTeachers.txt"))) {
-            String lineToEdit = teacher+": ";
+        try (BufferedReader reader = new BufferedReader(new FileReader("Teachers.txt"));
+             BufferedWriter writer = new BufferedWriter(new FileWriter("TempTeachers.txt"))) {
+
+            String lineToEdit = teacher + ": ";
+            System.out.println("Debug: Line to edit - " + lineToEdit);
+
             String currentLine;
             boolean isTeacherExist = false;
+
+            System.out.println("Debug: Starting to read and process lines from Teachers.txt");
             while ((currentLine = reader.readLine()) != null) {
-                
-                if (!currentLine.contains(lineToEdit)) {
+                System.out.println("Debug: Current line - " + currentLine);
+
+                if (!currentLine.trim().contains(lineToEdit.trim())) {
+                    System.out.println("Debug: Line does not contain teacher. Writing line as-is.");
                     writer.write(currentLine);
                     writer.newLine();
                     isTeacherExist = true;
-                }
-                else { //if teacher already exist just add lesson name
-                    writer.write(currentLine+", "+lesson);
+                } else {
+                    System.out.println("Debug: Teacher found. Adding lesson to line.");
+                    writer.write(currentLine + ", " + lesson);
                     writer.newLine();
                     isTeacherExist = false;
                 }
+
             }
-            if(!isTeacherExist){ //if teacher does not exist add teacher and lesson
-                writer.write(teacher+": "+lesson);
+
+            if (!isTeacherExist) { // if teacher does not exist, add teacher and lesson
+                System.out.println("Debug: Teacher not found. Adding new teacher and lesson.");
+                writer.write(teacher + ": " + lesson);
             }
-            
+
+            System.out.println("Debug: Finished processing lines.");
+
         } catch (IOException error) {
+            System.out.println("ok-te catchi");
+            System.out.println("Error: " + error.getMessage());
+
             function.AddLog(adminController.username, "Error manipulating the file: " + error.getMessage());
-            flag=false;
+            flag = false;
         }
-        
+
+
         try {
             Files.move(Paths.get("TempTeachers.txt"), Paths.get("Teachers.txt"), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

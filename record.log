@@ -130,3 +130,11 @@
 [2024-12-15 23:03:20]  user: admin -> login
 [2024-12-15 23:05:48]  user: admin -> login
 [2024-12-15 23:08:11]  user: admin -> login
+[2024-12-15 23:20:47]  user: admin -> admin get new lesson id - LessonsFiles\120242LessonsFiles120242Lessons.txt (The system cannot find the path specified)
+[2024-12-15 23:20:47]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-15 23:25:18]  user: admin -> login
+[2024-12-15 23:26:16]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-15 23:29:47]  user: admin -> login
+[2024-12-15 23:30:38]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-15 23:32:52]  user: admin -> login
+[2024-12-15 23:33:41]  user: admin -> New Lesson appended to the file successfully.
