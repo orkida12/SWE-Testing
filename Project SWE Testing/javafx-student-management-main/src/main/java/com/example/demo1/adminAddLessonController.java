@@ -16,6 +16,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class adminAddLessonController implements Initializable {
@@ -142,7 +143,7 @@ public class adminAddLessonController implements Initializable {
 
     
     @FXML void GoAddLesson(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("adminAddLesson.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("adminAddLesson.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -150,7 +151,7 @@ public class adminAddLessonController implements Initializable {
     }
     
     @FXML void GoProfList(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("adminTeacher.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("adminTeacher.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -158,7 +159,7 @@ public class adminAddLessonController implements Initializable {
     }
     
     @FXML void exit(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -167,7 +168,7 @@ public class adminAddLessonController implements Initializable {
     }
     
     @FXML void goHome(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -175,7 +176,7 @@ public class adminAddLessonController implements Initializable {
     }
     
     @FXML void goLessonList(ActionEvent event) throws IOException {
-        Parent loader = FXMLLoader.load(getClass().getResource( "adminLesson.fxml"));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("adminLesson.fxml")));
         Scene scene = new Scene(loader);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);

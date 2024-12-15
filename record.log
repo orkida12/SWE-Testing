@@ -40,3 +40,28 @@
 [2024-12-15 01:27:44]  user: admin -> login
 [2024-12-15 01:27:47]  user: admin -> Teachers.txt (The system cannot find the file specified)
 [2024-12-15 01:28:02]  user: admin -> Logout
+[2024-12-15 14:12:23]  user: ogj1 -> login
+[2024-12-15 14:12:30]  user: ogj1 -> login
+[2024-12-15 14:14:52]  user: ogj1 -> login
+[2024-12-15 14:15:48]  user: ogj1 -> Logout
+[2024-12-15 14:15:59]  user: admin -> login
+[2024-12-15 14:16:07]  user: admin -> Teachers.txt (The system cannot find the file specified)
+[2024-12-15 14:16:11]  user: admin -> Teachers.txt (The system cannot find the file specified)
+[2024-12-15 14:16:11]  user: admin -> Teachers.txt (The system cannot find the file specified)
+[2024-12-15 14:16:11]  user: admin -> Teachers.txt (The system cannot find the file specified)
+[2024-12-15 14:20:17]  user: ogj1 -> login
+[2024-12-15 14:20:23]  user: ogj1 -> Logout
+[2024-12-15 14:20:32]  user: admin -> login
+[2024-12-15 14:22:02]  user: admin -> login
+[2024-12-15 14:23:36]  user: admin -> login
+[2024-12-15 14:24:36]  user: admin -> login
+[2024-12-15 14:28:47]  user: admin -> admin get new lesson id - LessonsFiles\1403-2LessonsFiles1403-2Lessons.txt (The system cannot find the path specified)
+[2024-12-15 14:28:47]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-15 14:33:33]  user: admin -> login
+[2024-12-15 14:35:50]  user: admin -> login
+[2024-12-15 14:37:40]  user: admin -> login
+[2024-12-15 14:38:37]  user: admin -> login
+[2024-12-15 14:40:48]  user: admin -> login
+[2024-12-15 14:41:12]  user: admin -> Logout
+[2024-12-15 14:41:22]  user: zm25 -> login
+[2024-12-15 14:41:24]  user: null -> Logout

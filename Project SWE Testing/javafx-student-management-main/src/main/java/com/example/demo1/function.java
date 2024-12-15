@@ -54,9 +54,9 @@ public class function {
         int[] shamsiDate = gregorian_to_jalali(Integer.parseInt(miladiDate[0]), Integer.parseInt(miladiDate[1]), Integer.parseInt(miladiDate[2]));
         
         if(shamsiDate[1]<8)
-            entranceDate = shamsiDate[0]+"-1";
+            entranceDate = shamsiDate[0]+"1";
         else
-            entranceDate = shamsiDate[0]+"-2";
+            entranceDate = shamsiDate[0]+"2";
         
         return entranceDate;
     }
