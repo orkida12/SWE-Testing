@@ -1,2 +1,4 @@
-ogj1: math1, math2, Math
-ogj1: Math
+ogj1:
+td9:
+teacher1:
+teacher2:

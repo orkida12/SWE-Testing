@@ -23,6 +23,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
@@ -49,23 +50,66 @@ public class adminTeacherController implements Initializable {
         nameField.setText(adminController.username);
         handleData(table);
     }
-    
-    
-    public void handleData(TableView table){
-        try(BufferedReader br = new BufferedReader(new FileReader("Teachers.txt"))) {
+    // Method to retrieve only teacher usernames from Users.txt
+    public  static List<String> retrieveTeacherUsernames() {
+        List<String> teacherUsernames = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt"))) {
             String line;
-            int count =1 ;
-            while ((line=br.readLine())!=null){
-                String[] data = line.split(": ");
-                table.getItems().add(new Lesson(count++, data[0], data[1]));
+
+            // Read Users.txt line by line
+            while ((line = reader.readLine()) != null) {
+                String[] userDetails = line.split(", ");
+
+                // Check if the role is TEACHER and add the username
+                if (userDetails.length >= 4 && userDetails[3].equalsIgnoreCase("TEACHER")) {
+                    teacherUsernames.add(userDetails[0]); // Add only the username
+                }
             }
-            
-        }catch (IOException e){
+        } catch (IOException e) {
+            System.out.println("Error reading Users.txt: " + e.getMessage());
+        }
+
+        return teacherUsernames;
+    }
+
+    // Method to write teacher usernames to teachers.txt
+    public static void writeTeacherUsernamesToFile() {
+        List<String> teacherUsernames = retrieveTeacherUsernames();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("teachers.txt"))) {
+            for (String teacher : teacherUsernames) {
+                writer.write(teacher + ":"); // Write each teacher username with a colon
+                writer.newLine();            // Add a new line after each entry
+            }
+            System.out.println("Teacher usernames successfully written to teachers.txt");
+        } catch (IOException e) {
+            System.out.println("Error writing to teachers.txt: " + e.getMessage());
+        }
+    }
+
+    public void handleData(TableView table) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Teachers.txt"))) {
+            String line;
+            int count = 1;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(":\\s*");
+                String itemName = data[0].replace(":", "");
+                if (data.length == 2) {
+                    table.getItems().add(new Lesson(count++, itemName, data[1]));
+                } else {
+                    table.getItems().add(new Lesson(count++, itemName, ""));
+                }
+            }
+        } catch (IOException e) {
             function.AddLog(adminController.username, e.getMessage());
         }
-        
     }
-    
+
+
+
+
+
     EventHandler<MouseEvent> tableClicked = mouseEvent -> {
         if (mouseEvent.getClickCount() == 1 && !table.getSelectionModel().isEmpty()) {
             Lesson rowData = table.getSelectionModel().getSelectedItem();

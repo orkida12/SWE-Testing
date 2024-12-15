@@ -96,3 +96,37 @@
 [2024-12-15 21:09:36]  user: null -> Logout
 [2024-12-15 21:11:00]  user: ziko -> Data appended to the file successfully - signup
 [2024-12-15 21:11:00]  user: ziko -> success signup
+[2024-12-15 21:14:10]  user: ziko -> 'Users.txt' Updated - PassRecovery
+[2024-12-15 21:14:19]  user: ziko -> login
+[2024-12-15 21:26:53]  user: admin -> login
+[2024-12-15 21:28:10]  user: admin -> login
+[2024-12-15 21:28:11]  user: admin -> login
+[2024-12-15 21:28:14]  user: admin -> login
+[2024-12-15 21:28:21]  user: admin -> login
+[2024-12-15 21:28:21]  user: admin -> login
+[2024-12-15 21:28:21]  user: admin -> login
+[2024-12-15 21:28:22]  user: admin -> login
+[2024-12-15 21:28:22]  user: admin -> login
+[2024-12-15 21:28:22]  user: admin -> login
+[2024-12-15 21:28:22]  user: admin -> login
+[2024-12-15 21:28:22]  user: admin -> login
+[2024-12-15 21:28:36]  user: admin -> login
+[2024-12-15 21:30:23]  user: admin -> login
+[2024-12-15 21:38:17]  user: admin -> login
+[2024-12-15 21:40:06]  user: admin -> login
+[2024-12-15 22:38:10]  user: admin -> login
+[2024-12-15 22:38:45]  user: admin -> LessonsFiles\120242Lessons.txt (The system cannot find the path specified)
+[2024-12-15 22:38:45]  user: admin -> Teacher 'ogj1' deleted
+[2024-12-15 22:39:59]  user: admin -> LessonsFiles\120242Lessons.txt (The system cannot find the path specified)
+[2024-12-15 22:39:59]  user: admin -> Teacher 'ogj1' deleted
+[2024-12-15 22:57:56]  user: teacher1 -> Data appended to the file successfully - signup
+[2024-12-15 22:57:56]  user: teacher1 -> success signup
+[2024-12-15 22:57:59]  user: teacher1 -> Logout
+[2024-12-15 22:58:28]  user: teacher2 -> Data appended to the file successfully - signup
+[2024-12-15 22:58:28]  user: teacher2 -> success signup
+[2024-12-15 22:58:31]  user: teacher2 -> Logout
+[2024-12-15 22:58:40]  user: admin -> login
+[2024-12-15 23:02:31]  user: admin -> login
+[2024-12-15 23:03:20]  user: admin -> login
+[2024-12-15 23:05:48]  user: admin -> login
+[2024-12-15 23:08:11]  user: admin -> login

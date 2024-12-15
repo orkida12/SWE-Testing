@@ -54,7 +54,7 @@ public class LoginController implements Initializable {
             //check username and password
             if(signIn(name, pass, rol)){
                 function.AddLog(name,"login");
-                
+                System.out.println(rol);
                 //switch to panel  //TODO
                 if(rol.equals("STUDENT") && !function.isCorrectTime(entrance)){
 
@@ -65,6 +65,7 @@ public class LoginController implements Initializable {
                     app_stage.setScene(scene);
                     app_stage.show();
                 }else {
+
                     Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(rol.toLowerCase() + ".fxml")));
                     Scene scene = new Scene(loader);
                     Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

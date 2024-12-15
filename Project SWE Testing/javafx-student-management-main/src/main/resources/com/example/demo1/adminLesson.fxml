@@ -129,7 +129,7 @@
                <children>
                   <ImageView fitHeight="15.0" fitWidth="13.0" opacity="0.53">
                      <image>
-                        <Image url="" />
+                        <!-- <Image url="" /> -->
                      </image>
                   </ImageView>
                   <Label style="-fx-font-weight: bold; -fx-font-size: 25;" text="Menu">

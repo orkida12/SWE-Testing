@@ -65,6 +65,10 @@ public class signupController implements Initializable {
 
                             signUp(name, IdNumber, pass, rol);
                             function.AddLog(name, "success signup");
+                            if(rol.equals("TEACHER"))
+                            {
+                                adminTeacherController.writeTeacherUsernamesToFile();
+                            }
 
                             Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(rol.toLowerCase() + ".fxml")));
                             Scene scene = new Scene(loader);
