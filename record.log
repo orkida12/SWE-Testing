@@ -1,0 +1,42 @@
+[2024-12-15 00:40:48]  user: zm25 -> Error reading file-signup: Users.txt (The system cannot find the file specified)
+[2024-12-15 00:40:48]  user: zm25 -> Error reading file-signup: Users.txt (The system cannot find the file specified)
+[2024-12-15 00:41:00]  user: zm25 -> Error reading file-signup: Users.txt (The system cannot find the file specified)
+[2024-12-15 00:41:00]  user: zm25 -> Error reading file-signup: Users.txt (The system cannot find the file specified)
+[2024-12-15 00:41:00]  user: zm25 -> Data appended to the file successfully - signup
+[2024-12-15 00:41:00]  user: zm25 -> success signup
+[2024-12-15 00:41:27]  user: zm25 -> login
+[2024-12-15 00:41:36]  user: zm25 -> Logout
+[2024-12-15 00:41:50]  user: zm25 -> login
+[2024-12-15 00:44:55]  user: zm25 -> Logout
+[2024-12-15 00:45:08]  user: zm25 -> login
+[2024-12-15 00:51:15]  user: zm25 -> login
+[2024-12-15 00:51:18]  user: null -> Logout
+[2024-12-15 00:51:38]  user: zm252 -> Data appended to the file successfully - signup
+[2024-12-15 00:51:38]  user: zm252 -> success signup
+[2024-12-15 00:52:22]  user: zm252 -> login
+[2024-12-15 00:56:43]  user: zm252 -> login
+[2024-12-15 01:00:32]  user: zm25 -> login
+[2024-12-15 01:01:14]  user: zm25 -> 'Users.txt' Updated - PassRecovery
+[2024-12-15 01:04:00]  user: zm25 -> login
+[2024-12-15 01:04:34]  user: zm25 -> 'Users.txt' Updated - PassRecovery
+[2024-12-15 01:14:35]  user: ziko252 -> 'Users.txt' Updated - PassRecovery
+[2024-12-15 01:15:19]  user: zm252 -> 'Users.txt' Updated - PassRecovery
+[2024-12-15 01:15:29]  user: zm252 -> login
+[2024-12-15 01:15:57]  user: zm252 -> login
+[2024-12-15 01:17:57]  user: ogj1 -> Data appended to the file successfully - signup
+[2024-12-15 01:17:57]  user: ogj1 -> success signup
+[2024-12-15 01:21:53]  user: ogj1 -> login
+[2024-12-15 01:22:33]  user: null -> Logout
+[2024-12-15 01:22:44]  user: ogj1 -> login
+[2024-12-15 01:25:00]  user: null -> Logout
+[2024-12-15 01:25:20]  user: zm25 -> login
+[2024-12-15 01:25:23]  user: null -> Logout
+[2024-12-15 01:25:35]  user: ogj1 -> login
+[2024-12-15 01:25:37]  user: ogj1 -> login
+[2024-12-15 01:25:38]  user: ogj1 -> login
+[2024-12-15 01:25:39]  user: ogj1 -> login
+[2024-12-15 01:25:39]  user: ogj1 -> login
+[2024-12-15 01:25:41]  user: ogj1 -> login
+[2024-12-15 01:27:44]  user: admin -> login
+[2024-12-15 01:27:47]  user: admin -> Teachers.txt (The system cannot find the file specified)
+[2024-12-15 01:28:02]  user: admin -> Logout
