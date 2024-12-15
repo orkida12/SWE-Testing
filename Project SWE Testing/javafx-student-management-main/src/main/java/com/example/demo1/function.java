@@ -120,21 +120,27 @@ public class function {
         // Allow a range of valid dates if needed
         // Example: Allow access for 7 days before and after the correct date
         int validRangeDays = 7;
-        boolean isWithinRange = isDateWithinRange(nowDate, correctDate, validRangeDays);
+        System.out.println("cfare vene ne funksion"+nowDate+" "+correctDate+" "+validRangeDays);
 
+
+        boolean isWithinRange = isDateWithinRange(nowDate, correctDate, validRangeDays);
         return isWithinRange;
     }
 
     // Helper method to check if a date is within a valid range
     private static boolean isDateWithinRange(String currentDate, String targetDate, int rangeDays) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.println("dtf formati "+dtf);
 
         try {
             LocalDateTime current = LocalDateTime.parse(currentDate, dtf);
             LocalDateTime target = LocalDateTime.parse(targetDate, dtf);
+            System.out.println("jemi te try ");
 
             return !current.isBefore(target.minusDays(rangeDays)) && !current.isAfter(target.plusDays(rangeDays));
         } catch (Exception e) {
+            System.out.println("jemi te catch ");
+
             return false; // Return false in case of parsing errors
         }
     }
