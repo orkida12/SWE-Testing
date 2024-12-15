@@ -68,3 +68,31 @@
 [2024-12-15 14:48:26]  user: zm25 -> login
 [2024-12-15 14:50:44]  user: zm25 -> login
 [2024-12-15 14:56:26]  user: null -> Logout
+[2024-12-15 16:12:04]  user: zm25 -> login
+[2024-12-15 16:57:22]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 16:57:22]  user: ogj5 -> success signup
+[2024-12-15 16:57:37]  user: null -> Logout
+[2024-12-15 16:58:03]  user: ogj1 -> login
+[2024-12-15 16:58:10]  user: ogj1 -> Logout
+[2024-12-15 16:58:41]  user: ogj5 -> 'Users.txt' Updated - PassRecovery
+[2024-12-15 16:59:32]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 16:59:32]  user: ogj5 -> success signup
+[2024-12-15 16:59:36]  user: ogj5 -> Logout
+[2024-12-15 17:00:18]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 17:00:18]  user: sdsf -> success signup
+[2024-12-15 17:00:32]  user: ogj5 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-15 17:01:06]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 17:01:06]  user: temp1 -> success signup
+[2024-12-15 17:02:12]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 17:02:12]  user: temp -> success signup
+[2024-12-15 17:02:34]  user: ogj5 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-15 17:02:35]  user: ogj5 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-15 17:03:52]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 17:03:52]  user: z -> success signup
+[2024-12-15 21:00:06]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 21:00:06]  user: zm1 -> success signup
+[2024-12-15 21:06:16]  user: null -> Data appended to the file successfully - signup
+[2024-12-15 21:06:16]  user: td9 -> success signup
+[2024-12-15 21:09:36]  user: null -> Logout
+[2024-12-15 21:11:00]  user: ziko -> Data appended to the file successfully - signup
+[2024-12-15 21:11:00]  user: ziko -> success signup

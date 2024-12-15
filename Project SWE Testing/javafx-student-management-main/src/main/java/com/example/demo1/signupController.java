@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static java.lang.Integer.parseInt;
+
 public class signupController implements Initializable {
     private static final String passSalt = "9aR#5@jE!bFz^0p*2LcW8";
     public static String name;
@@ -54,22 +56,22 @@ public class signupController implements Initializable {
         String pass = password.getText();
         String confirm = passwordConfirm.getText();
         String rol = choiceBox.getValue();
-        
+
         if(!(name.isEmpty() || IdNumber.isEmpty() || pass.isEmpty() || confirm.isEmpty() || rol.isEmpty())) {
-            if (checkExistId(Integer.parseInt(IdNumber))) {
+            if (checkExistId(parseInt(IdNumber))) {
                 if(checkExist(name)){
                     if (pass.length() >= 6) {
                         if (pass.equals(confirm)) {
-                            
+
                             signUp(name, IdNumber, pass, rol);
                             function.AddLog(name, "success signup");
-                            
+
                             Parent loader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(rol.toLowerCase() + ".fxml")));
                             Scene scene = new Scene(loader);
                             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             app_stage.setScene(scene);
                             app_stage.show();
-                            
+
                         } else {
                             error.setText("password and confirm does not match");
                         }
@@ -140,7 +142,8 @@ public class signupController implements Initializable {
         try (BufferedReader reader = new BufferedReader(new FileReader(users))){
             while (((line = reader.readLine()) != null) && flag){
                 String[] data = line.split(", ");
-                if (Integer.parseInt(data[1])== id)
+                System.out.println(parseInt(data[1]));
+                if (parseInt(data[1])== id)
                     flag=false;
             }
             if (!flag){

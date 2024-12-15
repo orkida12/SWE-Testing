@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -46,103 +47,44 @@ public class function {
     
     public static String getTerm(){
         String entranceDate;
-        
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Get the current date and time
         LocalDateTime now = LocalDateTime.now();
-        
-        String[] miladiDate = dtf.format(now).split("-");
-        int[] shamsiDate = gregorian_to_jalali(Integer.parseInt(miladiDate[0]), Integer.parseInt(miladiDate[1]), Integer.parseInt(miladiDate[2]));
-        
-        if(shamsiDate[1]<8)
-            entranceDate = shamsiDate[0]+"1";
-        else
-            entranceDate = shamsiDate[0]+"2";
-        
+        int year = now.getYear();
+
+        // Determine if the current date is in the fall or spring semester
+        int month = now.getMonthValue();
+        if (month >= 1 && month <= 6) { // Spring semester (Jan to Jun)
+            entranceDate = "1" + year + "1";
+        } else { // Fall semester (Jul to Dec)
+            entranceDate = "1" + year + "2";
+        }
+
         return entranceDate;
     }
-    
-    //convert shamsi to miladi date
-    public static int[] gregorian_to_jalali(int gy, int gm, int gd) {
-        int[] out = {
-                (gm > 2) ? (gy + 1) : gy,
-                0,
-                0
-        };
-        {
-            int[] g_d_m = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
-            out[2] = 355666 + (365 * gy) + ((int) ((out[0] + 3) / 4)) - ((int) ((out[0] + 99) / 100)) + ((int) ((out[0] + 399) / 400)) + gd + g_d_m[gm - 1];
-        }
-        out[0] = -1595 + (33 * ((int) (out[2] / 12053)));
-        out[2] %= 12053;
-        out[0] += 4 * ((int) (out[2] / 1461));
-        out[2] %= 1461;
-        if (out[2] > 365) {
-            out[0] += (int) ((out[2] - 1) / 365);
-            out[2] = (out[2] - 1) % 365;
-        }
-        if (out[2] < 186) {
-            out[1] = 1 + (int)(out[2] / 31);
-            out[2] = 1 + (out[2] % 31);
-        } else {
-            out[1] = 7 + (int)((out[2] - 186) / 30);
-            out[2] = 1 + ((out[2] - 186) % 30);
-        }
-        return out;
-    }
+
+
 
     public static boolean isCorrectTime(String entrance) {
-        // Parse entrance year and term
-        String[] entranceParts = entrance.split("-");
-        int entranceYear = Integer.parseInt(entranceParts[0]);
-        int entranceTerm = Integer.parseInt(entranceParts[1]); // 1 = Spring, 2 = Fall
+        // Parse the entrance string to extract the year and term
+        int entranceYear = Integer.parseInt(entrance.substring(1, 5)); // Extract year (e.g., 2024)
+        int entranceTerm = Integer.parseInt(entrance.substring(5, 6)); // Extract term (1 = Spring, 2 = Fall)
 
         // Define the "correct date" dynamically based on the entrance year and term
-        String correctDate;
+        LocalDate correctDate;
         if (entranceTerm == 1) {
-            correctDate = entranceYear + "-12-01"; // Spring term ends around early December
+            // Spring term
+            correctDate = LocalDate.of(entranceYear, 06, 30);
         } else {
-            correctDate = (entranceYear + 1) + "-05-01"; // Fall term ends around early May
+            // Fall term
+            correctDate = LocalDate.of(entranceYear + 1, 03, 1);
         }
 
-        // Get the current date in Jalali format
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();
-        String[] miladiDate = dtf.format(now).split("-");
-        int[] nowArr = gregorian_to_jalali(
-                Integer.parseInt(miladiDate[0]),
-                Integer.parseInt(miladiDate[1]),
-                Integer.parseInt(miladiDate[2])
-        );
+        // Get the current date
+        LocalDate now = LocalDate.now();
 
-        // Format current Jalali date
-        String nowDate = String.format("%04d-%02d-%02d", nowArr[0], nowArr[1], nowArr[2]);
-
-        // Allow a range of valid dates if needed
-        // Example: Allow access for 7 days before and after the correct date
-        int validRangeDays = 7;
-        System.out.println("cfare vene ne funksion"+nowDate+" "+correctDate+" "+validRangeDays);
-
-
-        boolean isWithinRange = isDateWithinRange(nowDate, correctDate, validRangeDays);
-        return isWithinRange;
-    }
-
-    // Helper method to check if a date is within a valid range
-    private static boolean isDateWithinRange(String currentDate, String targetDate, int rangeDays) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        System.out.println("dtf formati "+dtf);
-
-        try {
-            LocalDateTime current = LocalDateTime.parse(currentDate, dtf);
-            LocalDateTime target = LocalDateTime.parse(targetDate, dtf);
-            System.out.println("jemi te try ");
-
-            return !current.isBefore(target.minusDays(rangeDays)) && !current.isAfter(target.plusDays(rangeDays));
-        } catch (Exception e) {
-            System.out.println("jemi te catch ");
-
-            return false; // Return false in case of parsing errors
-        }
+        // Check if the current date is within the range
+        return !now.isAfter(correctDate);
     }
 
 }
