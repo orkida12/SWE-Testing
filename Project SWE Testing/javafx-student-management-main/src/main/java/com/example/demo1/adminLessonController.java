@@ -53,10 +53,10 @@ public class adminLessonController implements Initializable {
     
     public void showData(TableView<Lesson> table){
         table.getItems().clear();
-        String[] date = function.getTerm().split("-");
-        System.out.println(date[0]+"Lessons.txt");
+        String date = function.getTerm();
+        System.out.println(date+"Lessons.txt");
 
-            try(BufferedReader reader= new BufferedReader(new FileReader("LessonsFiles"+date[0]+"Lessons.txt"))) {
+            try(BufferedReader reader= new BufferedReader(new FileReader("LessonsFiles"+date+"Lessons.txt"))) {
             int count=1;
             String line;
             while ((line=reader.readLine())!=null){
@@ -83,7 +83,7 @@ public class adminLessonController implements Initializable {
     
     public static void deleteLesson(String lesson, String teacher) {
         //Edit 'Lessons.txt'
-        try (BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles/"+function.getTerm()+"Lessons.txt")); BufferedWriter writer = new BufferedWriter(new FileWriter("TempLessons.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles"+function.getTerm()+"Lessons.txt")); BufferedWriter writer = new BufferedWriter(new FileWriter("TempLessons.txt"))) {
             String lineToRemove = lesson + ", " + teacher;
             String currentLine;
             
@@ -98,7 +98,7 @@ public class adminLessonController implements Initializable {
         } catch (IOException error) {
             function.AddLog(adminController.username, error.getMessage());
         }
-        try {Files.move(Paths.get("TempLessons.txt"), Paths.get("LessonsFiles/"+function.getTerm()+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);}
+       try {Files.move(Paths.get("TempLessons.txt"), Paths.get("LessonsFiles"+function.getTerm()+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);}
         catch (IOException e) {e.printStackTrace();}
         
         //Edit 'Teacher.txt'
@@ -106,7 +106,7 @@ public class adminLessonController implements Initializable {
             String lineToRemove = teacher+": ";
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
-                if (currentLine.contains(lineToRemove)) {
+                if (currentLine.trim().contains(lineToRemove.trim())) {
                     if(currentLine.contains(", "+lesson))
                         currentLine = currentLine.replace(", "+lesson, "");
                     else

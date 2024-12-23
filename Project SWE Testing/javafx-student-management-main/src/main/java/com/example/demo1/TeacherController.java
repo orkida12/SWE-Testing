@@ -68,7 +68,7 @@ public class TeacherController implements Initializable {
         btnAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
         stTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        ShowLessons(LessonsTable, "Project SWE Testing/javafx-student-management-main/LessonsFiles/14022Lessons.txt", username);
+        ShowLessons(LessonsTable, "LessonsFiles120242Lessons.txt", username);
     }
     
     //handle info btn

@@ -138,3 +138,53 @@
 [2024-12-15 23:30:38]  user: admin -> New Lesson appended to the file successfully.
 [2024-12-15 23:32:52]  user: admin -> login
 [2024-12-15 23:33:41]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-15 23:37:47]  user: admin -> login
+[2024-12-15 23:38:50]  user: admin -> LessonsFiles\120242Lessons.txt (The system cannot find the path specified)
+[2024-12-15 23:38:50]  user: admin -> lesson 'lesson4' deleted
+[2024-12-15 23:39:36]  user: admin -> login
+[2024-12-15 23:39:44]  user: admin -> LessonsFiles\120242Lessons.txt (The system cannot find the path specified)
+[2024-12-15 23:39:44]  user: admin -> lesson 'lesson4' deleted
+[2024-12-15 23:40:56]  user: admin -> login
+[2024-12-15 23:41:04]  user: admin -> LessonsFiles\120242Lessons.txt (The system cannot find the path specified)
+[2024-12-15 23:41:04]  user: admin -> lesson 'lesson4' deleted
+[2024-12-15 23:46:19]  user: admin -> login
+[2024-12-15 23:46:27]  user: admin -> Lesson 'lesson4' removed successfully
+[2024-12-15 23:46:27]  user: admin -> lesson 'lesson4' deleted
+[2024-12-15 23:49:34]  user: admin -> login
+[2024-12-15 23:49:42]  user: admin -> Lesson 'lesson3' removed successfully
+[2024-12-15 23:49:42]  user: admin -> lesson 'lesson3' deleted
+[2024-12-15 23:51:37]  user: td9 -> login
+[2024-12-15 23:51:51]  user: td9 -> Logout
+[2024-12-15 23:54:37]  user: td9 -> login
+[2024-12-15 23:56:15]  user: zm252 -> login
+[2024-12-15 23:56:18]  user: zm252 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-15 23:58:37]  user: zm252 -> login
+[2024-12-15 23:58:58]  user: zm252 -> error while saving new lessonsStudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-15 23:59:05]  user: zm252 -> error while saving new lessonsStudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-15 23:59:14]  user: zm252 -> success unit selection
+[2024-12-15 23:59:17]  user: zm252 -> Logout
+[2024-12-15 23:59:47]  user: td9 -> login
+[2024-12-15 23:59:57]  user: td9 -> Logout
+[2024-12-16 00:00:11]  user: zm252 -> login
+[2024-12-16 00:00:15]  user: zm252 -> error while saving new lessonsStudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-16 00:01:16]  user: zm252 -> success unit selection
+[2024-12-16 00:01:19]  user: zm252 -> Logout
+[2024-12-16 22:24:48]  user: zm25 -> login
+[2024-12-16 22:25:25]  user: zm25 -> error while saving new lessonsStudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-16 22:25:41]  user: zm25 -> error while saving new lessonsStudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-16 22:46:53]  user: zm25 -> login
+[2024-12-16 22:46:58]  user: zm25 -> error while saving new lessons120242Students.txt (The system cannot find the file specified)
+[2024-12-16 22:47:17]  user: zm25 -> error while saving new lessons120242Students.txt (The system cannot find the file specified)
+[2024-12-16 22:47:17]  user: zm25 -> error while saving new lessons120242Students.txt (The system cannot find the file specified)
+[2024-12-16 22:47:19]  user: zm25 -> success unit selection
+[2024-12-16 22:47:23]  user: zm25 -> Logout
+[2024-12-23 19:41:05]  user: zm25 -> login
+[2024-12-23 19:41:27]  user: zm25 -> error while saving new lessons120242Students.txt (The system cannot find the file specified)
+[2024-12-23 19:42:12]  user: zm25 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-23 19:42:58]  user: td9 -> login
+[2024-12-23 19:44:23]  user: td9 -> Logout
+[2024-12-23 19:44:34]  user: admin -> login
+[2024-12-23 19:45:04]  user: admin -> Logout
+[2024-12-23 19:50:12]  user: zm25 -> login
+[2024-12-23 19:50:31]  user: admin -> login
+[2024-12-23 19:51:14]  user: admin -> New Lesson appended to the file successfully.

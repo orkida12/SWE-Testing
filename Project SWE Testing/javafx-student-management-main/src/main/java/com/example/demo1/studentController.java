@@ -73,7 +73,7 @@ public class studentController implements Initializable {
         CheckBox = new CheckBox[]{checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8, checkBox9};
         
         
-        try(BufferedReader br= new BufferedReader(new FileReader("LessonsFiles/14022"+"Lessons.txt"))){
+        try(BufferedReader br= new BufferedReader(new FileReader("LessonsFiles"+function.getTerm()+"Lessons.txt"))){
             String line;
             
             for(int i = 0; i< Course.length && (line=br.readLine())!=null; i++){
@@ -123,7 +123,7 @@ public class studentController implements Initializable {
     }
     
     public void saveLesson(String studentName, String lessonId) {
-        try (BufferedReader br = new BufferedReader(new FileReader("StudentsFiles/14022Students.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("120242Students.txt"))) {
             String line;
             
             while ((line = br.readLine()) != null) {
