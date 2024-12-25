@@ -195,3 +195,24 @@
 [2024-12-25 17:52:19]  user: zm25 -> login
 [2024-12-25 17:52:21]  user: zm25 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
 [2024-12-25 17:52:36]  user: zm25 -> StudentsFiles\1202422Students.txt (The system cannot find the path specified)
+[2024-12-25 17:53:36]  user: zm25 -> login
+[2024-12-25 17:56:00]  user: zm25 -> login
+[2024-12-25 17:57:48]  user: zm25 -> login
+[2024-12-25 17:59:46]  user: zm25 -> login
+[2024-12-25 18:07:10]  user: zm25 -> login
+[2024-12-25 18:07:15]  user: zm25 -> error while saving new lessons: 120242Students.txt (The system cannot find the file specified)
+[2024-12-25 18:09:28]  user: zm25 -> login
+[2024-12-25 18:09:32]  user: zm25 -> error while saving new lessons: 120242StudentsLessons.txt (The system cannot find the file specified)
+[2024-12-25 18:11:22]  user: zm25 -> login
+[2024-12-25 18:11:25]  user: zm25 -> error while saving new lessons: 120242StudentsLessons.txt (The system cannot find the file specified)
+[2024-12-25 18:13:34]  user: zm25 -> login
+[2024-12-25 18:13:37]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-25 18:19:27]  user: zm25 -> login
+[2024-12-25 18:19:33]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-25 18:19:43]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-25 18:19:44]  user: zm25 -> success unit selection
+[2024-12-25 18:19:47]  user: zm25 -> Logout
+[2024-12-25 18:20:02]  user: zm25 -> login
+[2024-12-25 18:20:09]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-25 18:21:04]  user: td9 -> login
+[2024-12-25 18:22:24]  user: td9 -> login

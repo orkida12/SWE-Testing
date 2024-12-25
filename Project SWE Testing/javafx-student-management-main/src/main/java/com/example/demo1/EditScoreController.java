@@ -47,7 +47,7 @@ public class EditScoreController implements Initializable {
         stNumCol.setCellValueFactory(new PropertyValueFactory<>("StNumber"));
         scoreCol.setCellValueFactory(new PropertyValueFactory<>("ScoreField"));
         
-        try(BufferedReader reader= new BufferedReader(new FileReader("StudentsFiles/14022Students.txt"))) {
+        try(BufferedReader reader= new BufferedReader(new FileReader("120242StudentLessons"))) {
             float sum=0;
             int count=0;
             String line;

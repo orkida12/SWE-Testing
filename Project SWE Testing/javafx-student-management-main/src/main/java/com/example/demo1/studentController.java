@@ -21,6 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class studentController implements Initializable {
@@ -54,7 +55,13 @@ public class studentController implements Initializable {
         dropShadow.setColor(Color.web("#027027"));
         checkBox.setEffect(dropShadow);
 
-        // Add Text elements
+        // Add the checkbox to the list
+        checkBoxes.add(checkBox);
+
+        // Add the lessonId to the LessonsId list
+        LessonsId.add(lessonId);
+
+        // Create Text elements
         Text courseText = new Text("Course:");
         courseText.setFill(Color.web("#610c0c"));
         courseText.setLayoutX(116.0);
@@ -97,7 +104,7 @@ public class studentController implements Initializable {
         classLocationText.setStyle("-fx-font-size: 15;");
         classLocationText.setUnderline(true);
 
-        // Add TextField elements
+        // Create TextField elements
         TextField courseField = new TextField(course);
         courseField.setEditable(false);
         courseField.setOpacity(0.5);
@@ -231,34 +238,80 @@ public class studentController implements Initializable {
     }
 
     public void confirm(ActionEvent event) throws IOException {
+        // Debugging the username
+        System.out.println("Username: " + username+" -"+checkBoxes.size());
+
+        // Debugging the loop and selection
         for (int i = 0; i < checkBoxes.size(); i++) {
+            System.out.println("Index: " + i + ", Selected: " + checkBoxes.get(i).isSelected());
             if (checkBoxes.get(i).isSelected()) {
                 saveLesson(username, LessonsId.get(i));
+                System.out.println("Saved Lesson ID: " + LessonsId.get(i));
             }
         }
 
-        Parent loader = FXMLLoader.load(getClass().getResource("studentLessons.fxml"));
-        Scene scene = new Scene(loader);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.show();
+        // Debugging scene transition
+        try {
+            System.out.println("Loading studentLessons.fxml...");
+            Parent loader = FXMLLoader.load(getClass().getResource("studentLessons.fxml"));
+            System.out.println("FXML loaded successfully.");
+
+            Scene scene = new Scene(loader);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            System.out.println("Switching scene...");
+            app_stage.setScene(scene);
+            app_stage.show();
+            System.out.println("Scene switched successfully.");
+        } catch (IOException e) {
+            System.out.println("Error loading studentLessons.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        // Debugging the ActionEvent
+        System.out.println("Event Source: " + event.getSource());
     }
 
+
     public void saveLesson(String studentName, String lessonId) {
-        try (BufferedReader br = new BufferedReader(new FileReader("120242Students.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("120242StudentLessons.txt"))) {
             String line;
 
+            // Debug: Start of the file reading process
+            System.out.println("Starting to read the file...");
+
             while ((line = br.readLine()) != null) {
+                // Debug: Print the current line
+                System.out.println("Read line: " + line);
+
                 String[] data = line.split(", ");
-                if (studentName.equals(data[0]))
+                // Debug: Print the parsed data array
+                System.out.println("Parsed data: " + Arrays.toString(data));
+
+                if (studentName.equals(data[0])) {
                     lessons.add(data[3]);
+                    // Debug: Log when a lesson is added for the student
+                    System.out.println("Lesson added for student " + studentName + ": " + data[3]);
+                }
             }
-            if (!lessons.contains(lessonId))
+
+            // Debug: Print the lessons before adding the new one
+            System.out.println("Current lessons: " + lessons);
+
+            if (!lessons.contains(lessonId)) {
                 selectedLessons.add(lessonId);
+                // Debug: Log the addition of a new lesson
+                System.out.println("New lesson added to selectedLessons: " + lessonId);
+            }
 
         } catch (Exception e) {
+            // Debug: Print the exception message
+            System.out.println("Error: " + e.getMessage());
             function.AddLog(username, "error while saving new lessons: " + e.getMessage());
         }
+
+// Debug: Print the final state of selectedLessons
+        System.out.println("Final selected lessons: " + selectedLessons);
+
     }
 
     public void back(ActionEvent event) throws IOException {
