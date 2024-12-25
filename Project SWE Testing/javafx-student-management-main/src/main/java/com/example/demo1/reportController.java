@@ -79,7 +79,7 @@ public class reportController implements Initializable {
                     String score = stParts[2];
                     lessonId = stParts[3];
                     boolean flag = true;
-                    try(BufferedReader lesReader= new BufferedReader(new FileReader("LessonsFiles/"+term+"Lessons.txt"))){
+                    try(BufferedReader lesReader= new BufferedReader(new FileReader("LessonsFiles"+term+"Lessons.txt"))){
                         String lesLine;
                         while ((lesLine=lesReader.readLine())!=null && flag){
                             

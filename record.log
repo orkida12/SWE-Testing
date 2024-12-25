@@ -216,3 +216,7 @@
 [2024-12-25 18:20:09]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
 [2024-12-25 18:21:04]  user: td9 -> login
 [2024-12-25 18:22:24]  user: td9 -> login
+[2024-12-26 00:03:19]  user: zm25 -> 'Users.txt' Updated - PassRecovery
+[2024-12-26 00:05:04]  user: zm25 -> login
+[2024-12-26 00:21:39]  user: student1 -> Data appended to the file successfully - signup
+[2024-12-26 00:21:39]  user: student1 -> success signup

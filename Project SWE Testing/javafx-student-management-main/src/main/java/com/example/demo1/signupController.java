@@ -92,28 +92,46 @@ public class signupController implements Initializable {
     }
 
 //    <------------------------------------ Methods ----------------------------------------->
-    public void signUp(String user, String id_number, String pass, String accessibility) {
-        //file name
-            pass += passSalt;
-            String hashedPass = function.hashString(pass);
-            
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("Users.txt", true))) {
-                
-                writer.write(user+", ");
-                writer.write(id_number+", ");
-                writer.write(hashedPass+", ");
-                writer.write(accessibility+", ");
-                if(accessibility.equals("STUDENT"))
-                    writer.write(entranceDate);
-                writer.newLine();
-                writer.close();
-                
-                function.AddLog(name,"Data appended to the file successfully - signup");
-                
-            } catch (IOException error) {
-                function.AddLog(name,"Error writing to the file - signup: " + error.getMessage());
+public void signUp(String user, String id_number, String pass, String accessibility) {
+    // Add salt to the password
+    pass += passSalt;
+    String hashedPass = function.hashString(pass);
+
+    // File name for the main user file
+    String mainFile = "Users.txt";
+
+    // Determine the specific file for the role
+    String roleFile = accessibility.equalsIgnoreCase("STUDENT") ? "Student.txt"
+            : accessibility.equalsIgnoreCase("TEACHER") ? "Teachers.txt"
+            : null;
+
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(mainFile, true))) {
+        // Write to the main user file
+        writer.write(user + ", ");
+        writer.write(id_number + ", ");
+        writer.write(hashedPass + ", ");
+        writer.write(accessibility + ", ");
+        if (accessibility.equalsIgnoreCase("STUDENT")) {
+            writer.write(entranceDate);
+        }
+        writer.newLine();
+
+        // Write to the role-specific file if applicable
+        if (roleFile != null) {
+            try (BufferedWriter roleWriter = new BufferedWriter(new FileWriter(roleFile, true))) {
+                roleWriter.write(user + ": ");
+                if (accessibility.equalsIgnoreCase("STUDENT")) {
+                    roleWriter.write(entranceDate);
+                }
+                roleWriter.newLine();
             }
+        }
+
+        function.AddLog(name, "Data appended to the file successfully - signup");
+    } catch (IOException error) {
+        function.AddLog(name, "Error writing to the file - signup: " + error.getMessage());
     }
+}
     
     private static boolean checkExist(String user){
         String fileName = "Users.txt";

@@ -68,7 +68,7 @@ public class passwordRecoveryController implements Initializable {
         boolean flag = true;
 
         try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt"));
-             BufferedWriter writer = new BufferedWriter(new FileWriter("Users_temp.txt"))) {
+             BufferedWriter writer = new BufferedWriter(new FileWriter("TempUsers.txt"))) {
 
             String currentLine, newLine;
 
@@ -97,7 +97,7 @@ public class passwordRecoveryController implements Initializable {
 
         // Replace the original file with the updated file
         try {
-            Files.move(Paths.get("Users_temp.txt"), Paths.get("Users.txt"), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get("TempUsers.txt"), Paths.get("Users.txt"), StandardCopyOption.REPLACE_EXISTING);
             function.AddLog(username, "'Users.txt' Updated - PassRecovery");
         } catch (IOException e) {
             e.printStackTrace();

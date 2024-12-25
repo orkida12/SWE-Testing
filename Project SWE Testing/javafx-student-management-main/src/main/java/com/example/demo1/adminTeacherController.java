@@ -150,7 +150,7 @@ public class adminTeacherController implements Initializable {
         
         
         //remove lessons from 'Lessons.txt'
-        File lessonFile = new File("LessonsFiles/"+function.getTerm()+"Lessons.txt");
+        File lessonFile = new File("LessonsFiles"+function.getTerm()+"Lessons.txt");
         File tmpLessonFile = new File("tempLessons.txt");
         
         try (BufferedReader reader = new BufferedReader(new FileReader(lessonFile));
@@ -177,7 +177,7 @@ public class adminTeacherController implements Initializable {
             writer.close();
             
             try {
-                Files.move(Paths.get("tempLessons.txt"), Paths.get("LessonsFiles/"+function.getTerm()+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);
+                Files.move(Paths.get("tempLessons.txt"), Paths.get("LessonsFiles"+function.getTerm()+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 e.printStackTrace();
             }

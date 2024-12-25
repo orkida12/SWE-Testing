@@ -88,7 +88,7 @@ public class studentLessonsController implements Initializable {
 
     
     public void chooseLessons(String studentName, String stNum, String lessonId){
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("120242StudentLessons",true));
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("120242StudentLessons.txt",true));
             BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles" + function.getTerm() + "Lessons.txt")); BufferedWriter writer = new BufferedWriter(new FileWriter("lessons_temp.txt"))) {
             
             String line;

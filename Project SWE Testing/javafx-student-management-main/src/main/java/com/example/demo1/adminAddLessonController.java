@@ -109,22 +109,17 @@ public class adminAddLessonController implements Initializable {
              BufferedWriter writer = new BufferedWriter(new FileWriter("TempTeachers.txt"))) {
 
             String lineToEdit = teacher + ": ";
-            System.out.println("Debug: Line to edit - " + lineToEdit);
 
             String currentLine;
             boolean isTeacherExist = false;
 
-            System.out.println("Debug: Starting to read and process lines from Teachers.txt");
             while ((currentLine = reader.readLine()) != null) {
-                System.out.println("Debug: Current line - " + currentLine);
 
                 if (!currentLine.trim().contains(lineToEdit.trim())) {
-                    System.out.println("Debug: Line does not contain teacher. Writing line as-is.");
                     writer.write(currentLine);
                     writer.newLine();
                     isTeacherExist = true;
                 } else {
-                    System.out.println("Debug: Teacher found. Adding lesson to line.");
                     writer.write(currentLine + ", " + lesson);
                     writer.newLine();
                     isTeacherExist = false;
@@ -133,14 +128,11 @@ public class adminAddLessonController implements Initializable {
             }
 
             if (!isTeacherExist) { // if teacher does not exist, add teacher and lesson
-                System.out.println("Debug: Teacher not found. Adding new teacher and lesson.");
                 writer.write(teacher + ": " + lesson);
             }
 
-            System.out.println("Debug: Finished processing lines.");
 
         } catch (IOException error) {
-            System.out.println("ok-te catchi");
             System.out.println("Error: " + error.getMessage());
 
             function.AddLog(adminController.username, "Error manipulating the file: " + error.getMessage());
