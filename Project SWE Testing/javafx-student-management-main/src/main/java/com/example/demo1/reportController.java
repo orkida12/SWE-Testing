@@ -135,7 +135,7 @@ public class reportController implements Initializable {
             array.add(i+"1");
         }
         //for handling BAHMAN entrances
-        if(entranceArr[1].equals("1")){
+        if(entranceArr[0].equals("1")){
             array.add(year+"2");
             array.add(year+"1");
         }else

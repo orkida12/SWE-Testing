@@ -188,3 +188,10 @@
 [2024-12-23 19:50:12]  user: zm25 -> login
 [2024-12-23 19:50:31]  user: admin -> login
 [2024-12-23 19:51:14]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-25 17:37:40]  user: zm25 -> login
+[2024-12-25 17:37:48]  user: zm25 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-25 17:51:21]  user: zm25 -> login
+[2024-12-25 17:51:36]  user: zm25 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-25 17:52:19]  user: zm25 -> login
+[2024-12-25 17:52:21]  user: zm25 -> StudentsFiles\14022Students.txt (The system cannot find the path specified)
+[2024-12-25 17:52:36]  user: zm25 -> StudentsFiles\1202422Students.txt (The system cannot find the path specified)

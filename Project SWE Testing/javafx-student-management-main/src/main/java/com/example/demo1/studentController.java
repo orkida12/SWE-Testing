@@ -170,6 +170,7 @@ public class studentController implements Initializable {
         // Get username
         String signName = signupController.name;
         String LoginName = LoginController.name;
+
         if (signName != null) {
             nameField.setText(signName);
             stdName.setText(signName);

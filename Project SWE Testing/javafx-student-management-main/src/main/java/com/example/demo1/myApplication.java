@@ -23,5 +23,6 @@ public class myApplication extends Application {
     
     public static void main(String[] args) {
         launch();
+
     }
 }
