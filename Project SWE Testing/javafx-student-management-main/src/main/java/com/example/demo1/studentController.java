@@ -252,18 +252,13 @@ public class studentController implements Initializable {
 
         // Debugging scene transition
         try {
-            System.out.println("Loading studentLessons.fxml...");
             Parent loader = FXMLLoader.load(getClass().getResource("studentLessons.fxml"));
-            System.out.println("FXML loaded successfully.");
 
             Scene scene = new Scene(loader);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            System.out.println("Switching scene...");
             app_stage.setScene(scene);
             app_stage.show();
-            System.out.println("Scene switched successfully.");
         } catch (IOException e) {
-            System.out.println("Error loading studentLessons.fxml: " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -273,7 +268,7 @@ public class studentController implements Initializable {
 
 
     public void saveLesson(String studentName, String lessonId) {
-        try (BufferedReader br = new BufferedReader(new FileReader("120242StudentLessons.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(function.getTerm()+"StudentLessons.txt"))) {
             String line;
 
             // Debug: Start of the file reading process

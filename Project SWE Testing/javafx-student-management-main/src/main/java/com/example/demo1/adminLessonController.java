@@ -54,7 +54,6 @@ public class adminLessonController implements Initializable {
     public void showData(TableView<Lesson> table){
         table.getItems().clear();
         String date = function.getTerm();
-        System.out.println(date+"Lessons.txt");
 
             try(BufferedReader reader= new BufferedReader(new FileReader("LessonsFiles"+date+"Lessons.txt"))) {
             int count=1;

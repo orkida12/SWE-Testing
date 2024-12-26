@@ -1,4 +1,4 @@
-ogj1:
-td9:, lesson2
-teacher1:
-teacher2:
+101, ogj1:
+102, td9:, lesson2
+103, teacher1:
+104, teacher2:

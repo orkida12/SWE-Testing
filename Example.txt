@@ -1,0 +1,28 @@
+zm25 ziko123
+id e userit nese eshte admin 1-9
+            nese eshte student 10-100
+            nese eshte teacher 101-200
+
+id e lecture 500-1000
+id, math, techerid, teacher1, 5, 0, 120242, Sat[10:00-12:00], 1, 25/01/2001, 5, 3
+
+id e student-lecture 1001-1500
+id, idstudent, student1, idlecture ,lecture1
+
+inkrementohen me 1 dhe ne momentin qe hiqen autoupdateohen
+
+duhet bere dhe grumbullimi i fileve ne foldera po qe me vone ;)
+
+
+adminID=1;
+studentID=10;
+14, student1: 120242
+
+teacherID=101;
+
+LectureID=500;
+
+StudentLectureID=1001;
+u vendosen kur krijohen tashi kur i fshijme skam bere ate modifikimin
+
+Probleme minimaliste ka admini

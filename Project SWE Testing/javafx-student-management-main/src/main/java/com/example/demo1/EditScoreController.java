@@ -97,7 +97,7 @@ public class EditScoreController implements Initializable {
         
         //update Students.txt
         try {
-            Files.move(Paths.get("Students_temp.txt"), Paths.get("StudentsFiles/14022Students.txt"), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get("Students_temp.txt"), Paths.get(function.getTerm()+"StudentLessons.txt"), StandardCopyOption.REPLACE_EXISTING);
             function.AddLog(TeacherController.username,"'Students.txt' Updated");
         } catch (IOException e) {
             e.printStackTrace();

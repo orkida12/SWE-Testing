@@ -68,7 +68,7 @@ public class TeacherController implements Initializable {
         btnAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
         stTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        ShowLessons(LessonsTable, "LessonsFiles120242Lessons.txt", username);
+        ShowLessons(LessonsTable, "LessonsFiles"+function.getTerm()+"Lessons.txt", username);
     }
     
     //handle info btn
@@ -77,7 +77,7 @@ public class TeacherController implements Initializable {
             Lesson rowData = LessonsTable.getSelectionModel().getSelectedItem();
             clicked_lesson_name = rowData.getName();
             clicked_lesson_id = rowData.getId();
-            ShowStudents(stTable, "StudentsFiles/14022Students.txt",clicked_lesson_id);
+            ShowStudents(stTable, function.getTerm()+"StudentLessons.txt",clicked_lesson_id);
             TitledPane.setExpanded(false);
             LessonNameField.setText(clicked_lesson_name);
         }

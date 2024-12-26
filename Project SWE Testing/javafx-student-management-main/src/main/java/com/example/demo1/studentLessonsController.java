@@ -32,8 +32,9 @@ public class studentLessonsController implements Initializable {
     @FXML private TableColumn<SelectedLessons, Button> action;
     @FXML private TableColumn<SelectedLessons, String> lesson, unit, teacher, classInfo, classTime, examDate;
     public static ArrayList<String> selectedLessons = studentController.selectedLessons;
-    
-    
+     public  static  int StudentLectureID=1001;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         
@@ -65,7 +66,7 @@ public class studentLessonsController implements Initializable {
         int count=1;
         
         for (String selectedLesson : selectedLessons) {
-            try (BufferedReader brLessons = new BufferedReader(new FileReader("LessonsFiles/14022"+"Lessons.txt"))) {
+            try (BufferedReader brLessons = new BufferedReader(new FileReader("LessonsFiles" + function.getTerm() + "Lessons.txt"))) {
                 String line;
                 String[] lessonData;
                 
@@ -86,17 +87,17 @@ public class studentLessonsController implements Initializable {
     }
     
 
-    
     public void chooseLessons(String studentName, String stNum, String lessonId){
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("120242StudentLessons.txt",true));
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(function.getTerm()+"StudentLessons.txt",true));
             BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles" + function.getTerm() + "Lessons.txt")); BufferedWriter writer = new BufferedWriter(new FileWriter("lessons_temp.txt"))) {
-            
+
             String line;
+            String lessionName="";
             while ((line = reader.readLine())!=null){
                 String[] parts = line.split(", ");
-                if (parts[6].equals(lessonId)) {
-                    int newCount = Integer.parseInt(parts[3])+1;
-                    String newLine = parts[0]+", "+parts[1]+", "+parts[2]+", "+newCount+", "+parts[4]+", "+parts[5]+", "+parts[6]+", "+parts[7]+", "+parts[8]+", "+parts[9];
+                if (parts[0].equals(lessonId)) {
+                    lessionName=parts[1];
+                    String newLine = parts[0]+", "+parts[1]+", "+parts[2]+", "+", "+parts[4]+", "+parts[5]+", "+parts[6]+", "+parts[7]+", "+parts[8]+", "+parts[9]+", "+parts[10]+", "+parts[11];
                     writer.write(newLine);
                     writer.newLine();
                 }else {
@@ -104,15 +105,18 @@ public class studentLessonsController implements Initializable {
                     writer.newLine();
                 }
             }
-            bw.write(studentName + ", " + stNum + ", null, " + lessonId);
-            bw.newLine();;
+
+            bw.write(StudentLectureID + ", "+ stNum +", "+ studentName + ", "  + lessonId+", "+lessionName);
+            StudentLectureID++;
+
+            bw.newLine();
             
         } catch (Exception e) {
             function.AddLog(studentName, "error while writing new lesson"+e.getMessage());
         }
         
         try {
-            Files.move(Paths.get("lessons_temp.txt"), Paths.get("LessonsFiles/14022"+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get("lessons_temp.txt"), Paths.get("LessonsFiles"+function.getTerm()+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -124,7 +124,7 @@ public class adminTeacherController implements Initializable {
         ArrayList<String> lessonsToDel = new ArrayList<>();
         
         try (BufferedReader reader = new BufferedReader(new FileReader("Teachers.txt"));
-             BufferedWriter writer = new BufferedWriter(new FileWriter("tempTeachers.txt"))) {
+             BufferedWriter writer = new BufferedWriter(new FileWriter("TempTeachers.txt"))) {
             String line;
             
             while ((line = reader.readLine()) != null) {
@@ -143,7 +143,7 @@ public class adminTeacherController implements Initializable {
         }
         
         try {
-            Files.move(Paths.get("tempTeachers.txt"), Paths.get("Teachers.txt"), REPLACE_EXISTING);
+            Files.move(Paths.get("TempTeachers.txt"), Paths.get("Teachers.txt"), REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }

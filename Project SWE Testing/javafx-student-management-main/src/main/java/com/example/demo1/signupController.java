@@ -18,6 +18,9 @@ import java.util.ResourceBundle;
 import static java.lang.Integer.parseInt;
 
 public class signupController implements Initializable {
+    public static int adminID=1;
+    public static int studentID=10;
+    public static int teacherID=101;
     private static final String passSalt = "9aR#5@jE!bFz^0p*2LcW8";
     public static String name;
     public static String entranceDate;
@@ -92,6 +95,10 @@ public class signupController implements Initializable {
     }
 
 //    <------------------------------------ Methods ----------------------------------------->
+
+    //TODO id nr ta vendos ne read mode ne momentin qe krijojme account,
+    //mundesisht nuk duhet fare ketu po sa per reference
+
 public void signUp(String user, String id_number, String pass, String accessibility) {
     // Add salt to the password
     pass += passSalt;
@@ -106,9 +113,20 @@ public void signUp(String user, String id_number, String pass, String accessibil
             : null;
 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(mainFile, true))) {
+
+
         // Write to the main user file
         writer.write(user + ", ");
-        writer.write(id_number + ", ");
+        if(accessibility.equalsIgnoreCase("STUDENT")){
+            writer.write(studentID + ", ");
+            studentID++;
+        }else if (accessibility.equalsIgnoreCase("TEACHER")){
+            writer.write(teacherID + ", ");
+            teacherID++;
+        }else {
+            writer.write(adminID + ", ");
+            adminID++;
+        }
         writer.write(hashedPass + ", ");
         writer.write(accessibility + ", ");
         if (accessibility.equalsIgnoreCase("STUDENT")) {
@@ -119,6 +137,13 @@ public void signUp(String user, String id_number, String pass, String accessibil
         // Write to the role-specific file if applicable
         if (roleFile != null) {
             try (BufferedWriter roleWriter = new BufferedWriter(new FileWriter(roleFile, true))) {
+                if(accessibility.equalsIgnoreCase("STUDENT")){
+                    roleWriter.write(studentID + ", ");
+                }else if (accessibility.equalsIgnoreCase("TEACHER")){
+                    roleWriter.write(teacherID + ", ");
+                }else {
+                    roleWriter.write(adminID + ", ");
+                }
                 roleWriter.write(user + ": ");
                 if (accessibility.equalsIgnoreCase("STUDENT")) {
                     roleWriter.write(entranceDate);

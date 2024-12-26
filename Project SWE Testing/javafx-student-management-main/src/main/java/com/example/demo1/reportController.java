@@ -67,7 +67,7 @@ public class reportController implements Initializable {
     
     public void showLessons(TableView<myLessons> table, String username, String term){
         table.getItems().clear();
-        try(BufferedReader stReader= new BufferedReader(new FileReader("StudentsFiles/"+term+"Students.txt"))) {
+        try(BufferedReader stReader= new BufferedReader(new FileReader(term+"StudentLessons.txt"))) {
             float sum=0;
             int count=1;
             String stLine, lessonId;

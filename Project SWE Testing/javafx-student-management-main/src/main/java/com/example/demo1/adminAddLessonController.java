@@ -19,11 +19,13 @@ import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.demo1.signupController.teacherID;
+
 public class adminAddLessonController implements Initializable {
     public static boolean flag = true;
     @FXML private TextField ClassInfo, ExamVenue, classTime, examDate, lesson, nameField, teacher, unit;
     @FXML private Label msg;
-    
+    private static int LectureID=500;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameField.setText(adminController.username);
@@ -82,11 +84,15 @@ public class adminAddLessonController implements Initializable {
         
         return (lastId+1);
     }
-    
+    //TODO lession id nuk nevojitet
     public static void addLesson(String lesson, String teacher, String unit, String LessonTime, int LessonId, String examTime, String examVenue, String classInfo){
         //Edit 'Lessons.txt'
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("LessonsFiles"+function.getTerm()+"Lessons.txt", true))) {
+            writer.write(LectureID+", ");
+            LectureID++;
             writer.write(lesson+", ");
+            writer.write(teacherID+", ");
+
             writer.write(teacher+", ");
             writer.write(unit+", ");
             writer.write("0"+ ", ");
