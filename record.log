@@ -222,3 +222,10 @@
 [2024-12-26 00:21:39]  user: student1 -> success signup
 [2024-12-26 01:42:44]  user: admin -> login
 [2024-12-26 01:43:37]  user: admin -> Logout
+[2024-12-26 15:47:53]  user: td9 -> 'Users.txt' Updated - PassRecovery
+[2024-12-26 15:48:01]  user: td9 -> login
+[2024-12-26 15:48:04]  user: td9 -> Logout
+[2024-12-26 15:48:17]  user: admin -> login
+[2024-12-26 15:49:15]  user: admin -> New Lesson appended to the file successfully.
+[2024-12-26 15:49:16]  user: admin -> Logout
+[2024-12-26 15:49:27]  user: zm25 -> login

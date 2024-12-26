@@ -97,7 +97,7 @@ public class studentController implements Initializable {
         examVenueText.setStyle("-fx-font-size: 15;");
         examVenueText.setUnderline(true);
 
-        Text classLocationText = new Text("Class location:");
+        Text classLocationText = new Text("Class time:");
         classLocationText.setFill(Color.web("#610c0c"));
         classLocationText.setLayoutX(596.0);
         classLocationText.setLayoutY(120.0);
@@ -204,13 +204,13 @@ public class studentController implements Initializable {
 
                 // Create a dynamic AnchorPane for this lesson
                 AnchorPane lessonComponent = createLessonComponent(
-                        parts[0], // Course
-                        parts[1], // Professor
-                        parts[2], // Unit
-                        parts[7], // Exam date
-                        parts[8], // Exam venue
-                        parts[9], // Class location
-                        parts[6]  // Lesson ID
+                        parts[1], // Course
+                        parts[3], // Professor
+                        parts[4], // Unit
+                        parts[9], // Exam date
+                        parts[10], // Exam venue
+                        parts[7], // Class location
+                        parts[0]  // Lesson ID
                 );
 
                 // Add the dynamically created component to the VBox container
