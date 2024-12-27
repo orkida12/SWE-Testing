@@ -19,13 +19,52 @@ import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.demo1.signupController.teacherID;
 
 public class adminAddLessonController implements Initializable {
     public static boolean flag = true;
     @FXML private TextField ClassInfo, ExamVenue, classTime, examDate, lesson, nameField, teacher, unit;
     @FXML private Label msg;
-    private static int LectureID=500;
+
+    public static final int LectureID=500;
+
+
+    private static final int LECTURE_ID_END = 1000;
+
+    public static int getNextId() {
+        int start=LectureID, end=LECTURE_ID_END;
+
+        // Determine the range based on the role
+
+
+        boolean[] idUsed = new boolean[end - start + 1];
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("LessonsFiles"+function.getTerm()+"Lessons.txt"))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] lessonDetails = line.split(", ");
+                int id = Integer.parseInt(lessonDetails[0]);
+
+                // Mark IDs that are currently in use
+                if (id >= start && id <= end) {
+                    idUsed[id - start] = true;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading LessonsFiles"+function.getTerm()+"Lessons.txt" + e.getMessage());
+        }
+
+        // Find the lowest unused ID within the range
+        for (int i = 0; i < idUsed.length; i++) {
+            if (!idUsed[i]) {
+                return start + i;
+            }
+        }
+
+        // If no IDs are available, the range is exhausted
+        throw new IllegalStateException("ID range  is exhausted!");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameField.setText(adminController.username);
@@ -84,15 +123,38 @@ public class adminAddLessonController implements Initializable {
         
         return (lastId+1);
     }
+
+    public static int findIdOfTeacherGivenUsername(String username) {
+        String teachersFile = "Teachers.txt"; // Path to the teachers file
+        try (BufferedReader reader = new BufferedReader(new FileReader(teachersFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Split the line to extract ID and username
+                String[] teacherDetails = line.split(": ");
+                String[] idAndName = teacherDetails[0].split(", ");
+
+                if (idAndName[1].equals(username)) {
+                    // Return the ID as an integer
+                    return Integer.parseInt(idAndName[0]);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading Teachers.txt: " + e.getMessage());
+        }
+
+        // If username is not found, return -1 or throw an exception
+        return -1;
+    }
+
     //TODO lession id nuk nevojitet
     public static void addLesson(String lesson, String teacher, String unit, String LessonTime, int LessonId, String examTime, String examVenue, String classInfo){
         //Edit 'Lessons.txt'
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("LessonsFiles"+function.getTerm()+"Lessons.txt", true))) {
-            writer.write(LectureID+", ");
-            LectureID++;
-            writer.write(lesson+", ");
-            writer.write(teacherID+", ");
 
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("LessonsFiles"+function.getTerm()+"Lessons.txt", true))) {
+            writer.write(getNextId()+", ");
+            writer.write(lesson+", ");
+            writer.write(findIdOfTeacherGivenUsername(teacher)+", ");
             writer.write(teacher+", ");
             writer.write(unit+", ");
             writer.write("0"+ ", ");

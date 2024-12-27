@@ -72,6 +72,7 @@ public class TeacherController implements Initializable {
     }
     
     //handle info btn
+
     EventHandler<MouseEvent> tableClicked = mouseEvent -> {
         if (mouseEvent.getClickCount() == 1 && !LessonsTable.getSelectionModel().isEmpty()) {
             Lesson rowData = LessonsTable.getSelectionModel().getSelectedItem();

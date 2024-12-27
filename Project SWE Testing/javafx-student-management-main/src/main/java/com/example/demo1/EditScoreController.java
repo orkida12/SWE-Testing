@@ -47,7 +47,7 @@ public class EditScoreController implements Initializable {
         stNumCol.setCellValueFactory(new PropertyValueFactory<>("StNumber"));
         scoreCol.setCellValueFactory(new PropertyValueFactory<>("ScoreField"));
         
-        try(BufferedReader reader= new BufferedReader(new FileReader("120242StudentLessons"))) {
+        try(BufferedReader reader= new BufferedReader(new FileReader(function.getTerm()+"StudentLessons"))) {
             float sum=0;
             int count=0;
             String line;
@@ -70,7 +70,7 @@ public class EditScoreController implements Initializable {
     
     public void AddScore(ActionEvent event) throws IOException {
         String LessonId = TeacherController.clicked_lesson_id;
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Students_temp.txt")); BufferedReader br = new BufferedReader(new FileReader("StudentsFiles/14022Students.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Students_temp.txt")); BufferedReader br = new BufferedReader(new FileReader(function.getTerm()+"StudentLessons.txt"))) {
             String line;
 
             while ((line = br.readLine()) != null) {

@@ -238,19 +238,16 @@ public class studentController implements Initializable {
     }
 
     public void confirm(ActionEvent event) throws IOException {
-        // Debugging the username
-        System.out.println("Username: " + username+" -"+checkBoxes.size());
 
-        // Debugging the loop and selection
+
         for (int i = 0; i < checkBoxes.size(); i++) {
-            System.out.println("Index: " + i + ", Selected: " + checkBoxes.get(i).isSelected());
             if (checkBoxes.get(i).isSelected()) {
+                //selectedLessons.add(LessonsId.get(i));
                 saveLesson(username, LessonsId.get(i));
                 System.out.println("Saved Lesson ID: " + LessonsId.get(i));
             }
         }
 
-        // Debugging scene transition
         try {
             Parent loader = FXMLLoader.load(getClass().getResource("studentLessons.fxml"));
 
@@ -262,29 +259,19 @@ public class studentController implements Initializable {
             e.printStackTrace();
         }
 
-        // Debugging the ActionEvent
         System.out.println("Event Source: " + event.getSource());
     }
 
 
     public void saveLesson(String studentName, String lessonId) {
-        try (BufferedReader br = new BufferedReader(new FileReader(function.getTerm()+"StudentLessons.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(function.getTerm()+"StudentLessons"))) {
             String line;
 
-            // Debug: Start of the file reading process
-            System.out.println("Starting to read the file...");
-
             while ((line = br.readLine()) != null) {
-                // Debug: Print the current line
-                System.out.println("Read line: " + line);
-
                 String[] data = line.split(", ");
-                // Debug: Print the parsed data array
-                System.out.println("Parsed data: " + Arrays.toString(data));
 
-                if (studentName.equals(data[0])) {
+                if (studentName.equals(data[2])) {
                     lessons.add(data[3]);
-                    // Debug: Log when a lesson is added for the student
                     System.out.println("Lesson added for student " + studentName + ": " + data[3]);
                 }
             }

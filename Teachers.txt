@@ -1,4 +1,2 @@
-101, ogj1:
-102, td9:, lesson2
-103, teacher1:
-104, teacher2:
+103, teacher1: math
+101, ogj: lecture1

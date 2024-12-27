@@ -18,9 +18,67 @@ import java.util.ResourceBundle;
 import static java.lang.Integer.parseInt;
 
 public class signupController implements Initializable {
-    public static int adminID=1;
-    public static int studentID=10;
-    public static int teacherID=101;
+    public static final int adminID=1;
+
+    private static final int ADMIN_ID_END = 9;
+
+    private static final int studentID = 10;
+    private static final int STUDENT_ID_END = 100;
+    private static final int teacherID = 101;
+    private static final int TEACHER_ID_END = 200;
+
+    // Method to get the next ID for a specific role
+    public static int getNextId(String role) {
+        int start, end=0;
+
+        // Determine the range based on the role
+        switch (role.toUpperCase()) {
+            case "STUDENT":
+                start = studentID;
+                end = STUDENT_ID_END;
+                break;
+            case "TEACHER":
+                start = teacherID;
+                end = TEACHER_ID_END;
+                break;
+
+            case "ADMIN":
+                start = adminID;
+                end = ADMIN_ID_END;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid role: " + role);
+        }
+        boolean[] idUsed = new boolean[end - start + 1];
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt"))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] userDetails = line.split(", ");
+                int id = Integer.parseInt(userDetails[1]);
+
+                // Mark IDs that are currently in use
+                if (id >= start && id <= end) {
+                    idUsed[id - start] = true;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading Users.txt: " + e.getMessage());
+        }
+
+        // Find the lowest unused ID within the range
+        for (int i = 0; i < idUsed.length; i++) {
+            if (!idUsed[i]) {
+                return start + i;
+            }
+        }
+
+        // If no IDs are available, the range is exhausted
+        throw new IllegalStateException("ID range for " + role + " is exhausted!");
+    }
+
+
     private static final String passSalt = "9aR#5@jE!bFz^0p*2LcW8";
     public static String name;
     public static String entranceDate;
@@ -113,20 +171,13 @@ public void signUp(String user, String id_number, String pass, String accessibil
             : null;
 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(mainFile, true))) {
+        int newId = getNextId(roleFile);
 
 
         // Write to the main user file
         writer.write(user + ", ");
-        if(accessibility.equalsIgnoreCase("STUDENT")){
-            writer.write(studentID + ", ");
-            studentID++;
-        }else if (accessibility.equalsIgnoreCase("TEACHER")){
-            writer.write(teacherID + ", ");
-            teacherID++;
-        }else {
-            writer.write(adminID + ", ");
-            adminID++;
-        }
+        writer.write(newId + ", ");
+
         writer.write(hashedPass + ", ");
         writer.write(accessibility + ", ");
         if (accessibility.equalsIgnoreCase("STUDENT")) {

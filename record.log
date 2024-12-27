@@ -222,6 +222,15 @@
 [2024-12-26 00:21:39]  user: student1 -> success signup
 [2024-12-26 01:42:44]  user: admin -> login
 [2024-12-26 01:43:37]  user: admin -> Logout
+[2024-12-26 01:52:59]  user: zm25 -> login
+[2024-12-26 01:53:22]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-26 01:54:48]  user: ogj1 -> 'Users.txt' Updated - PassRecovery
+[2024-12-26 01:55:37]  user: ogj1 -> 'Users.txt' Updated - PassRecovery
+[2024-12-26 01:56:45]  user: teacher3 -> Data appended to the file successfully - signup
+[2024-12-26 01:56:45]  user: teacher3 -> success signup
+[2024-12-26 02:01:45]  user: teacher4 -> Data appended to the file successfully - signup
+[2024-12-26 02:01:45]  user: teacher4 -> success signup
+[2024-12-26 02:02:23]  user: teacher4 -> Logout
 [2024-12-26 15:47:53]  user: td9 -> 'Users.txt' Updated - PassRecovery
 [2024-12-26 15:48:01]  user: td9 -> login
 [2024-12-26 15:48:04]  user: td9 -> Logout
@@ -229,3 +238,83 @@
 [2024-12-26 15:49:15]  user: admin -> New Lesson appended to the file successfully.
 [2024-12-26 15:49:16]  user: admin -> Logout
 [2024-12-26 15:49:27]  user: zm25 -> login
+[2024-12-26 21:01:04]  user: zm25 -> login
+[2024-12-26 21:02:04]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-26 21:08:33]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-26 21:09:22]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-26 21:09:22]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-26 21:10:21]  user: ogj1 -> login
+[2024-12-26 21:10:26]  user: ogj1 -> Logout
+[2024-12-26 22:01:56]  user: zm25 -> login
+[2024-12-26 22:02:01]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-26 22:03:13]  user: zm25 -> login
+[2024-12-26 23:23:13]  user: td9 -> login
+[2024-12-26 23:24:16]  user: td9 -> Logout
+[2024-12-26 23:24:24]  user: admin -> login
+[2024-12-26 23:26:22]  user: admin -> Logout
+[2024-12-27 00:43:51]  user: zm25 -> login
+[2024-12-27 00:47:59]  user: zm25 -> login
+[2024-12-27 00:48:09]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 00:48:28]  user: zm25 -> Logout
+[2024-12-27 00:48:42]  user: td9 -> login
+[2024-12-27 00:49:05]  user: td9 -> Logout
+[2024-12-27 00:53:12]  user: zm25 -> login
+[2024-12-27 00:53:30]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 00:53:47]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 00:54:36]  user: zm25 -> success unit selection
+[2024-12-27 00:54:40]  user: zm25 -> Logout
+[2024-12-27 00:56:06]  user: zm25 -> login
+[2024-12-27 00:56:10]  user: zm25 -> error while saving new lessons: 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 01:02:01]  user: zm25 -> login
+[2024-12-27 01:06:19]  user: zm25 -> login
+[2024-12-27 01:53:52]  user: zm25 -> login
+[2024-12-27 01:56:01]  user: zm25 -> login
+[2024-12-27 01:56:14]  user: zm25 -> success unit selection
+[2024-12-27 01:56:18]  user: zm25 -> Logout
+[2024-12-27 01:58:07]  user: zm25 -> login
+[2024-12-27 01:58:33]  user: zm25 -> success unit selection
+[2024-12-27 01:58:36]  user: zm25 -> Logout
+[2024-12-27 02:03:33]  user: zm25 -> login
+[2024-12-27 02:03:34]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:03:42]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:03:44]  user: zm25 -> 1202422StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:04:29]  user: zm25 -> login
+[2024-12-27 02:04:31]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:05:36]  user: zm25 -> login
+[2024-12-27 02:05:38]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:05:52]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:06:02]  user: zm25 -> 1202422StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:07:15]  user: zm25 -> login
+[2024-12-27 02:07:17]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:07:23]  user: zm25 -> 1202422StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:07:27]  user: zm25 -> 14022StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:07:30]  user: zm25 -> Logout
+[2024-12-27 02:08:12]  user: zm25 -> login
+[2024-12-27 02:08:16]  user: zm25 -> 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:08:24]  user: zm25 -> 1202422StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:11:18]  user: zm25 -> login
+[2024-12-27 02:11:21]  user: zm25 -> 120242StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:11:26]  user: zm25 -> 1202422StudentLessons.txt (The system cannot find the file specified)
+[2024-12-27 02:12:33]  user: zm25 -> login
+[2024-12-27 02:12:49]  user: zm25 -> 1202422StudentLessons (The system cannot find the file specified)
+[2024-12-27 02:14:26]  user: zm25 -> login
+[2024-12-27 02:15:27]  user: zm25 -> login
+[2024-12-27 02:18:45]  user: zm25 -> login
+[2024-12-27 02:19:43]  user: zm25 -> 1202422StudentLessons (The system cannot find the file specified)
+[2024-12-27 02:24:12]  user: zm25 -> login
+[2024-12-27 02:27:48]  user: zm25 -> login
+[2024-12-27 02:30:19]  user: zm25 -> login
+[2024-12-27 02:31:46]  user: zm25 -> login
+[2024-12-27 02:35:08]  user: zm25 -> login
+[2024-12-27 02:37:56]  user: zm25 -> login
+[2024-12-27 02:40:45]  user: zm25 -> login
+[2024-12-27 02:44:07]  user: zm25 -> Logout
+[2024-12-27 02:44:15]  user: zm25 -> login
+[2024-12-27 02:44:53]  user: td9 -> login
+[2024-12-27 02:45:00]  user: td9 -> Logout
+[2024-12-27 02:47:18]  user: ogj1 -> login
+[2024-12-27 02:47:41]  user: ogj1 -> Logout
+[2024-12-27 02:48:22]  user: zm25 -> login
+[2024-12-27 02:49:48]  user: zm25 -> login
+[2024-12-27 02:50:16]  user: zm25 -> Logout
+[2024-12-27 03:03:22]  user: td9 -> login

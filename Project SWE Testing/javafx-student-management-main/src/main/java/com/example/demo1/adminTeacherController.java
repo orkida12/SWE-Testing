@@ -118,74 +118,93 @@ public class adminTeacherController implements Initializable {
             function.AddLog(adminController.username, "Teacher '"+rowData.getTeacher()+"' deleted");
         }
     };
-    
+
     public static void delTeacher(String name) {
         //remove teacher from 'Teachers.txt'
         ArrayList<String> lessonsToDel = new ArrayList<>();
-        
+
+        // Step 1: Remove teacher and update remaining IDs
+        ArrayList<String> updatedTeachers = new ArrayList<>();
+        int nextId = 101; // Start of teacher ID range
+
         try (BufferedReader reader = new BufferedReader(new FileReader("Teachers.txt"));
              BufferedWriter writer = new BufferedWriter(new FileWriter("TempTeachers.txt"))) {
+
             String line;
-            
             while ((line = reader.readLine()) != null) {
                 if (!line.contains(name)) {
-                    writer.write(line);
+                    // Reassign the ID
+                    String[] teacherDetails = line.split(": ");
+                    String[] idAndName = teacherDetails[0].split(", ");
+                    String updatedLine = nextId + ", " + idAndName[1] + ": " + teacherDetails[1];
+                    writer.write(updatedLine);
                     writer.newLine();
-                } else{
-                    
+                    updatedTeachers.add(updatedLine);
+                    nextId++; // Increment the ID for the next teacher
+                } else {
+                    // Extract lessons associated with the teacher to be removed
                     Collections.addAll(lessonsToDel, line.split(": ")[1].split(", "));
                 }
-                
             }
-            
+
         } catch (IOException e) {
-            function.AddLog(adminController.username, e.getMessage());
+            function.AddLog(adminController.username, "Error removing teacher from Teachers.txt: " + e.getMessage());
+            return;
         }
-        
+
         try {
             Files.move(Paths.get("TempTeachers.txt"), Paths.get("Teachers.txt"), REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        
-        //remove lessons from 'Lessons.txt'
-        File lessonFile = new File("LessonsFiles"+function.getTerm()+"Lessons.txt");
+
+
+
+        // Remove lessons from 'Lessons.txt' and reassign IDs
+        File lessonFile = new File("LessonsFiles" + function.getTerm() + "Lessons.txt");
         File tmpLessonFile = new File("tempLessons.txt");
-        
+        ArrayList<String> updatedLessons = new ArrayList<>();
+        int nextIdL = 500; // Start of lesson ID range
+
         try (BufferedReader reader = new BufferedReader(new FileReader(lessonFile));
              BufferedWriter writer = new BufferedWriter(new FileWriter(tmpLessonFile))) {
-            
+
             String line;
-            while ((line=reader.readLine())!=null){
-                boolean flag = true;
-                
+            while ((line = reader.readLine()) != null) {
+                boolean keep = true;
+
                 for (String lessonToDel : lessonsToDel) {
-                    if (line.split(", ")[1].equals(name) && line.split(", ")[0].equals(lessonToDel)) {
-                        flag = false;
+                    // Check if the line matches the lesson to be deleted
+                    String[] details = line.split(", ");
+                    if (details[1].equals(lessonToDel) && details[3].equals(name)) { // Match lesson name and professor
+                        keep = false;
                         break;
                     }
-                    
                 }
-                
-                if(flag){
-                    writer.write(line);
+
+                if (keep) {
+                    // Reassign the lesson ID
+                    String[] details = line.split(", ");
+                    details[0] = String.valueOf(nextIdL++); // Update the lesson ID
+                    String updatedLine = String.join(", ", details);
+
+                    // Write updated line to the temporary file
+                    writer.write(updatedLine);
                     writer.newLine();
                 }
             }
-            reader.close();
-            writer.close();
-            
-            try {
-                Files.move(Paths.get("tempLessons.txt"), Paths.get("LessonsFiles"+function.getTerm()+"Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            
+
         } catch (IOException e) {
-            function.AddLog(adminController.username, e.getMessage());
+            function.AddLog(adminController.username, "Error processing Lessons.txt: " + e.getMessage());
         }
-        
+
+        try {
+            Files.move(Paths.get("tempLessons.txt"), Paths.get("LessonsFiles" + function.getTerm() + "Lessons.txt"), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            function.AddLog(adminController.username, "Error replacing Lessons.txt: " + e.getMessage());
+
+        }
+
     }
     
     @FXML void GoAddLesson(ActionEvent event) throws IOException {

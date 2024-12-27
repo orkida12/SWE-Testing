@@ -1,15 +1,47 @@
-zm25 ziko123
-id e userit nese eshte admin 1-9
-            nese eshte student 10-100
-            nese eshte teacher 101-200
+GOCAAAAA HIIII
+-une ate gjene me countera mendoj se e zgjidha
+gjithsesi duhet ta testoj prap sidomos ate id e student lecture.
+So kur te mbarojm me rregullimet dhe modifikimet do merrem me testimin e kesaj gjese.
+-zgjidha qe te dali dhe ajo lesson report ama ka prb ne menyren si vijne te dhenat dmth
+mund te jet colona teacher, dhe aty dalin id qe sben sens po momentalisht mir esht sic eshte.
 
-id e lecture 500-1000
+Shume te rendesishme per tu rregulluar ka mbetur
+
+te student
+- ai confirmim button ku prb mendoj esht se therrasim nje funksion
+dhe nuk shtojme fare id. kam bere nje gje koment une aty qe them se me te del
+dhe jo me ate funksionin saveLesson qe therritet.
+Por qe shifeni vet nese do dicka tjtr ose nese duhet apo jo ajo aty.
+-ne momentin qe studenti i ka bere confirmim lendes
+nuk eshte e nevojshme qe ajo lenda te duket prape te faqja kryesore per confirmim.
+Cfaredo lloj ideje tu vij do jete perfekte.
+
+te lecture
+-edit score
+-shikoni nese popullohen tabelat te faqja kryesore(un mbaj mend qe po kur e kam pas testuar nga nentori).
+Ama sjam e sigurt nese funksionojne tani me ndryshimet e bera.
+- ketu ne momentin qe hap edit score dhe e mbyll krijohet nje file student_temp pa lidhje.
+Student temp duhet te jete xha ne projekt po jo te krijohet ne strukturen e projektit dhe ta keni me te kuqe anash.
+
+
+Dhe pak na ka mbetur
+Go Tea
+Go Orkida
+
+shifemi pas 8 oresh.
+bai bai
+---------------------------------------------------------
+zm25 ziko123
+id e userit nese eshte admin 1-9 SAME HERE ME STUDENTIN ...
+            nese eshte student 10-100 KETU SKEMI AUTOUPDATE TE ID SE SFSHIJM GJR ...
+            nese eshte teacher 101-200 KETU E KEMI ...
+
+id e lecture 500-1000 KETU DO KEMI AUTOUPDATE TE ID VETEM NE RAST SE BEJM REMOVE NJE TEACHER
 id, math, techerid, teacher1, 5, 0, 120242, Sat[10:00-12:00], 1, 25/01/2001, 5, 3
 
-id e student-lecture 1001-1500
+id e student-lecture 1001-1500 KETU KEMI 2 CASE NE MOMENTIN QE FSHIHET NJE TEACHER, DHE NE MOMENTIN QE FSHIHET NJE STUDENT LECTURE(KUJDES KETU KE DHE UPDATIMIN E ISsELECTED)
 id, idstudent, student1, idlecture ,lecture1
 
-inkrementohen me 1 dhe ne momentin qe hiqen autoupdateohen
 
 duhet bere dhe grumbullimi i fileve ne foldera po qe me vone ;)
 
@@ -20,9 +52,16 @@ studentID=10;
 
 teacherID=101;
 
+103, teacher1: math
+
 LectureID=500;
 
 StudentLectureID=1001;
-u vendosen kur krijohen tashi kur i fshijme skam bere ate modifikimin
+
+
 
 Probleme minimaliste ka admini
+
+
+DEL NJE STUDENT TEMP PALIDHJE SI FILE
+
